@@ -19,7 +19,7 @@ class _LogInPageState extends State<LogInPage> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: Text('image'),
+              child: Text('image +++++++'),
             ),
           ],
         ),

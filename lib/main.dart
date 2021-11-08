@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'Pages/wecomePage.dart';
+import 'Pages/logInPage.dart';
+// import 'Pages/wecomePage.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: SafeArea(
           child: Container(
-            child: WelcomePage(),
+            child: LogInPage(),
           ),
         ),
       ),
