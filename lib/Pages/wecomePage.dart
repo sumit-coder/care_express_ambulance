@@ -35,6 +35,7 @@ class WelcomePage extends StatelessWidget {
                 color: Colors.grey,
                 borderRadius: BorderRadius.circular(10),
               ),
+              child: Image.asset('assets/playstore.png'),
             ),
             Container(
               // decoration: BoxDecoration(color: Colors.grey),

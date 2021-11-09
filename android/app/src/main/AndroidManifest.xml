@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.care_express_ambulance">
    <application
-        android:label="care_express_ambulance"
+        android:label="Care Express Ambulance"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

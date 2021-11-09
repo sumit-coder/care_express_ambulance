@@ -10,6 +10,8 @@ import 'Pages/logInPage.dart';
 import 'Pages/otpPage.dart';
 // import 'Pages/wecomePage.dart';
 
+// https://www.freepik.com/free-vector/medical-equipment-illustration_6822677.htm#page=1&query=ambulance&position=33&from_view=keyword
+
 void main() {
   // runApp(MyApp());
   runApp(
