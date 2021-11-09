@@ -12,7 +12,7 @@ class _EmergencyPageState extends State<EmergencyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: Text('Emergency Page '),
+        child: Center(child: Text('Emergency Page ')),
       ),
     );
   }

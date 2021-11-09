@@ -60,26 +60,16 @@ class WelcomePage extends StatelessWidget {
                           size: size,
                           icon: Icons.west,
                           ontap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => EmergencyPage(),
-                              ),
-                            );
-                            print('Left');
+                            Navigator.pushNamed(context,
+                                '/emergencyPage'); //For SENDING to EmergencyPage
                           },
                         ),
                         WelcomeBtn(
                           size: size,
                           icon: Icons.east,
                           ontap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LogInPage(),
-                              ),
-                            );
-                            print('Right');
+                            Navigator.pushNamed(context,
+                                '/logInPage'); //For SENDING to LogInPage
                           },
                         ),
 
