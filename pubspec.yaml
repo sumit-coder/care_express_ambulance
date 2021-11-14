@@ -47,6 +47,7 @@ flutter:
     # - assets/pro_logo.png
     # - assets/coin.png
     - assets/
+    - assets/ambulance_2.jpg
   fonts:
     - family: Barlow_Medium
       fonts:

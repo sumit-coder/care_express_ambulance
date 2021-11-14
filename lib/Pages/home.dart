@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'PageSections/aboutSection.dart';
+import 'PageSections/ambulanceSection.dart';
+import 'PageSections/homeSection.dart';
+
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
 
@@ -28,11 +32,11 @@ class _HomePageState extends State<HomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.card_travel),
-            label: 'Ambulance',
+            label: 'Emergency',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_add),
-            label: 'About',
+            label: 'Quick Cure',
           ),
         ],
         currentIndex: activeBottonIndex,
@@ -50,97 +54,7 @@ class _HomePageState extends State<HomePage> {
           : activeBottonIndex == 1
               ? AmbulanceSection()
               : AboutSection(),
-    );
-  }
-}
-
-class HomeSection extends StatelessWidget {
-  const HomeSection({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      color: Color(0xFFE3E4EA),
-      padding: EdgeInsets.only(top: 30, left: 20, right: 20),
-      child: Column(
-        children: [
-          Text(
-            'What are YOu Looking For ?',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-              // color: Colors.black,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 20, bottom: 20),
-            height: 60,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
-          Container(
-            child: Column(
-              children: [
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      listViewItem(size),
-                      listViewItem(size),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20),
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      listViewItem(size),
-                      listViewItem(size),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  Container listViewItem(Size size) {
-    return Container(
-      height: 200,
-      width: size.width * 0.42,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-      ),
-    );
-  }
-}
-
-class AmbulanceSection extends StatelessWidget {
-  const AmbulanceSection({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Center(child: Text('Ambulance')),
-    );
-  }
-}
-
-class AboutSection extends StatelessWidget {
-  const AboutSection({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Center(child: Text('About')),
+      // body: AmbulanceSection(),
     );
   }
 }
