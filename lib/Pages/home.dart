@@ -1,3 +1,4 @@
+import 'package:care_express_ambulance/Pages/pagesOfSections/otherEmergencyViewMorePage.dart';
 import 'package:flutter/material.dart';
 
 import 'PageSections/aboutSection.dart';
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> {
           : activeBottonIndex == 1
               ? AmbulanceSection()
               : AboutSection(),
-      // body: AmbulanceSection(),
+      // body: OtherEmergencyViewMorePage(),
     );
   }
 }

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'emergencyPage.dart';
-import 'logInPage.dart';
-
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
 
@@ -30,12 +27,20 @@ class WelcomePage extends StatelessWidget {
             ),
             Container(
               width: size.width * 0.7,
-              height: size.height * 0.4,
+              // height: size.height * 0.4,
               decoration: BoxDecoration(
                 color: Colors.grey,
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Image.asset('assets/playstore.png'),
+              child: Container(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(
+                    'assets/playstore.png',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
             ),
             Container(
               // decoration: BoxDecoration(color: Colors.grey),

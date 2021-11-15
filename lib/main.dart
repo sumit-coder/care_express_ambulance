@@ -8,6 +8,7 @@ import 'package:device_preview/device_preview.dart';
 
 import 'Pages/logInPage.dart';
 import 'Pages/otpPage.dart';
+import 'Pages/pagesOfSections/otherEmergencyViewMorePage.dart';
 // import 'Pages/wecomePage.dart';
 
 // https://www.freepik.com/free-vector/medical-equipment-illustration_6822677.htm#page=1&query=ambulance&position=33&from_view=keyword
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         '/logInPage': (context) => LogInPage(),
         '/otpPage': (context) => OtpPage(),
         '/homePage': (context) => HomePage(),
+        '/otherEmergencyPage': (context) => OtherEmergencyViewMorePage(),
       },
       home: Scaffold(
         // appBar: AppBar(),
