@@ -108,6 +108,7 @@ class WelcomeBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      borderRadius: BorderRadius.circular(size.width * 0.3 / 2),
       onTap: () {
         ontap();
       },

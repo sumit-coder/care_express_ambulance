@@ -1,5 +1,3 @@
-import 'package:care_express_ambulance/Pages/home.dart';
-import 'package:care_express_ambulance/Pages/wecomePage.dart';
 import 'package:care_express_ambulance/Widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,6 +10,32 @@ class OtpPage extends StatefulWidget {
 }
 
 class _OtpPageState extends State<OtpPage> {
+  late FocusNode myFocusNode;
+  late FocusNode myFocusNode2;
+  late FocusNode myFocusNode3;
+  late FocusNode myFocusNode4;
+
+  @override
+  void initState() {
+    super.initState();
+
+    myFocusNode = new FocusNode();
+    myFocusNode2 = new FocusNode();
+    myFocusNode3 = new FocusNode();
+    myFocusNode4 = new FocusNode();
+  }
+
+  @override
+  void dispose() {
+    // Clean up the focus node when the Form is disposed.
+    myFocusNode.dispose();
+    myFocusNode2.dispose();
+    myFocusNode3.dispose();
+    myFocusNode4.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -24,6 +48,8 @@ class _OtpPageState extends State<OtpPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            SizedBox(height: 0),
+            SizedBox(height: 0),
             Container(
               height: size.height * 0.30,
               decoration: BoxDecoration(
@@ -76,11 +102,17 @@ class _OtpPageState extends State<OtpPage> {
                   Container(
                     width: size.width * 0.15,
                     child: TextField(
+                      focusNode: myFocusNode,
                       style: TextStyle(fontSize: 25),
                       keyboardType: TextInputType.phone,
                       textAlign: TextAlign.center,
                       onChanged: (value) {
                         print(value);
+                        if (value == '') {
+                          // myFocusNode.requestFocus();
+                        } else {
+                          myFocusNode2.requestFocus();
+                        }
                       },
                     ),
                   ),
@@ -88,11 +120,18 @@ class _OtpPageState extends State<OtpPage> {
                   Container(
                     width: size.width * 0.15,
                     child: TextField(
+                      focusNode: myFocusNode2,
                       style: TextStyle(fontSize: 25),
                       keyboardType: TextInputType.phone,
                       textAlign: TextAlign.center,
                       onChanged: (value) {
                         print(value);
+
+                        if (value == '') {
+                          myFocusNode.requestFocus();
+                        } else {
+                          myFocusNode3.requestFocus();
+                        }
                       },
                     ),
                   ),
@@ -100,11 +139,17 @@ class _OtpPageState extends State<OtpPage> {
                   Container(
                     width: size.width * 0.15,
                     child: TextField(
+                      focusNode: myFocusNode3,
                       style: TextStyle(fontSize: 25),
                       keyboardType: TextInputType.phone,
                       textAlign: TextAlign.center,
                       onChanged: (value) {
                         print(value);
+                        if (value == '') {
+                          myFocusNode2.requestFocus();
+                        } else {
+                          myFocusNode4.requestFocus();
+                        }
                       },
                     ),
                   ),
@@ -112,11 +157,16 @@ class _OtpPageState extends State<OtpPage> {
                   Container(
                     width: size.width * 0.15,
                     child: TextField(
+                      focusNode: myFocusNode4,
                       style: TextStyle(fontSize: 25),
                       keyboardType: TextInputType.phone,
                       textAlign: TextAlign.center,
                       onChanged: (value) {
                         print(value);
+
+                        if (value == '') {
+                          myFocusNode3.requestFocus();
+                        }
                       },
                     ),
                   ),
@@ -127,6 +177,8 @@ class _OtpPageState extends State<OtpPage> {
               child: Column(
                 children: [
                   BtnName(
+                    btnColor: Colors.purple,
+                    btnName: 'VERIFY OTP',
                     tapFun: () {
                       Navigator.pushNamed(
                           context, '/homePage'); //For SENDING to HomePage
@@ -137,7 +189,7 @@ class _OtpPageState extends State<OtpPage> {
                     textAlign: TextAlign.center,
                     text: TextSpan(
                       text: 'Dont get OTP ?  ',
-                      style: TextStyle(fontSize: 18, color: Colors.black),
+                      style: TextStyle(fontSize: 16, color: Colors.black),
                       children: const <TextSpan>[
                         TextSpan(
                           text: 'RESEND OTP',

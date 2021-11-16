@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AmbulanceSection extends StatefulWidget {
   const AmbulanceSection({Key? key}) : super(key: key);
@@ -321,7 +321,7 @@ class _PhoneAmbulanceState extends State<PhoneAmbulance> {
           InkWell(
             onTap: () {
               print('calling');
-              // launch("tel://108");
+              launch("tel://108");
             },
             child: Container(
               height: 40,

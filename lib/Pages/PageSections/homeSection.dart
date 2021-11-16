@@ -19,7 +19,7 @@ class _HomeSectionState extends State<HomeSection> {
         child: Column(
           children: [
             Text(
-              'Find Your Desired Service',
+              'Find Your Desired \Service',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 30,

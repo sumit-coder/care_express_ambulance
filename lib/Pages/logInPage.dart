@@ -23,6 +23,8 @@ class _LogInPageState extends State<LogInPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            SizedBox(height: 0),
+            SizedBox(height: 0),
             Container(
               height: size.height * 0.30,
               decoration: BoxDecoration(
@@ -94,6 +96,8 @@ class _LogInPageState extends State<LogInPage> {
                         ),
                         SizedBox(height: 30),
                         BtnName(
+                          btnColor: Colors.purple,
+                          btnName: 'SEND OTP',
                           tapFun: () {
                             Navigator.pushNamed(
                                 context, '/otpPage'); //For SENDING to OTPPage
