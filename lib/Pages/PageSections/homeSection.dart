@@ -1,3 +1,4 @@
+import 'package:care_express_ambulance/Pages/pagesOfSections/homePrivateAmbu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -132,11 +133,33 @@ class _HomeSectionState extends State<HomeSection> {
                                     size,
                                     '/ambulance_4.jpg',
                                     'Ambulance One',
+                                    () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              PrivateAmbulanceBookPage(
+                                            ambulanceTypeData: 'Ambulance One',
+                                          ),
+                                        ),
+                                      );
+                                    },
                                   ),
                                   ambulanceListViewItem(
                                     size,
                                     '/ambulance_6.jpg',
                                     'Ambulance Two',
+                                    () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              PrivateAmbulanceBookPage(
+                                            ambulanceTypeData: 'Ambulance two',
+                                          ),
+                                        ),
+                                      );
+                                    },
                                   ),
                                   // ambulanceListViewItem(size),
                                 ],
@@ -153,30 +176,75 @@ class _HomeSectionState extends State<HomeSection> {
                       containerForShow: Container(
                         child: Column(
                           children: [
-                            hospitalCard(size, 'Apollo Hospital', 'INDORE',
-                                '/apollo.jpg'),
-                            hospitalCard(size, 'Bombay Hospital', 'INDORE',
-                                '/bombay.jpg'),
                             hospitalCard(
-                                size, 'MY Hospital', 'INDORE', '/my.jpg'),
+                              size,
+                              'Apollo Hospital',
+                              'INDORE',
+                              '/apollo.jpg',
+                              () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        PrivateAmbulanceBookPage(
+                                      ambulanceTypeData: 'Apoollo',
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                            hospitalCard(
+                              size,
+                              'Bombay Hospital',
+                              'INDORE',
+                              '/bombay.jpg',
+                              () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        PrivateAmbulanceBookPage(
+                                      ambulanceTypeData: 'Bombay',
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                            hospitalCard(
+                              size,
+                              'MY Hospital',
+                              'INDORE',
+                              '/my.jpg',
+                              () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        PrivateAmbulanceBookPage(
+                                      ambulanceTypeData: 'MY',
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
                             // hospitalCard(size),
                             // hospitalCard(size),
                           ],
                         ),
                       ),
                     ),
-                    //  Ambulance by Desies Section -----------------------------------
-                    HomeCardSections(
-                      titleText: 'Ambulance by Desies',
-                      viewMoreFunction: () {},
-                      containerForShow: Container(
-                        child: Column(
-                          children: [
-                            // hospitalCard(size),
-                          ],
-                        ),
-                      ),
-                    ),
+                    // //  Ambulance by Desies Section -----------------------------------
+                    // HomeCardSections(
+                    //   titleText: 'Ambulance by Desies',
+                    //   viewMoreFunction: () {},
+                    //   containerForShow: Container(
+                    //     child: Column(
+                    //       children: [
+                    //         // hospitalCard(size),
+                    //       ],
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
@@ -187,141 +255,161 @@ class _HomeSectionState extends State<HomeSection> {
     );
   }
 
-  Container hospitalCard(
+  Widget hospitalCard(
     Size size,
     String hName,
     String hCity,
     String imgLink,
+    VoidCallback onTapFun,
   ) {
     return Container(
-      width: size.width,
-      height: 120,
-      padding: EdgeInsets.all(10),
       margin: EdgeInsets.only(bottom: 10),
-      decoration: BoxDecoration(
+      child: Material(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
-      ),
-      child: Row(
-        children: [
-          Container(
-            width: 110,
-            height: 100,
+        child: InkWell(
+          onTap: onTapFun,
+          borderRadius: BorderRadius.circular(10),
+          child: Container(
+            width: size.width,
+            height: 120,
+            padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: Colors.grey.shade300,
-              borderRadius: BorderRadius.circular(5),
+              // color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
             ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(5),
-              child: Image.asset(
-                imgLink,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.only(left: 20, right: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Row(
               children: [
-                Text(
-                  hName,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey.shade800,
+                Container(
+                  width: 110,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade300,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(5),
+                    child: Image.asset(
+                      imgLink,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-                SizedBox(height: 5),
                 Container(
-                  child: Row(
+                  padding: EdgeInsets.only(left: 20, right: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(
-                        Icons.location_on,
-                        color: Colors.grey.shade700,
-                        size: 17,
-                      ),
-                      // SizedBox(width: 5),
                       Text(
-                        hCity,
+                        hName,
                         style: TextStyle(
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Colors.grey.shade700,
+                          color: Colors.grey.shade800,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Container(
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.location_on,
+                              color: Colors.grey.shade700,
+                              size: 17,
+                            ),
+                            // SizedBox(width: 5),
+                            Text(
+                              hCity,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                                color: Colors.grey.shade700,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 15),
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: Colors.green.shade200,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Text(
+                          'Book Ambulance',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.green.shade700,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ],
                   ),
-                ),
-                SizedBox(height: 15),
-                Container(
-                  padding: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    color: Colors.green.shade200,
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Text(
-                    'Book Ambulance',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.green.shade700,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+                )
               ],
             ),
-          )
-        ],
+          ),
+        ),
       ),
     );
   }
 
-  Container ambulanceListViewItem(Size size, String imgLink, String ambName) {
-    return Container(
-      height: 180,
-      width: size.width * 0.5 - 30,
-      decoration: BoxDecoration(
-        color: Colors.white,
+  Widget ambulanceListViewItem(
+      Size size, String imgLink, String ambName, VoidCallback onTapFun) {
+    return Material(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(10),
+      child: InkWell(
         borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            padding: EdgeInsets.all(5),
-            height: 130,
-            width: size.width * 0.5 - 30,
-            child: ClipRRect(
-              // borderRadius: BorderRadius.only(
-              //   topLeft: Radius.circular(10),
-              //   topRight: Radius.circular(10),
-              // ),
-              borderRadius: BorderRadius.circular(5),
-              child: Image.asset(
-                imgLink,
-                fit: BoxFit.cover,
-              ),
-            ),
+        onTap: onTapFun,
+        child: Container(
+          height: 180,
+          width: size.width * 0.5 - 30,
+          decoration: BoxDecoration(
+            // color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
           ),
-          Container(
-            height: 50,
-            decoration: BoxDecoration(
-              // color: Colors.grey,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Center(
-              child: Text(
-                ambName,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey.shade800,
-                  fontWeight: FontWeight.bold,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                padding: EdgeInsets.all(5),
+                height: 130,
+                width: size.width * 0.5 - 30,
+                child: ClipRRect(
+                  // borderRadius: BorderRadius.only(
+                  //   topLeft: Radius.circular(10),
+                  //   topRight: Radius.circular(10),
+                  // ),
+                  borderRadius: BorderRadius.circular(5),
+                  child: Image.asset(
+                    imgLink,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-            ),
-          )
-        ],
+              Container(
+                height: 50,
+                decoration: BoxDecoration(
+                  // color: Colors.grey,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                  child: Text(
+                    ambName,
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey.shade800,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -359,13 +447,22 @@ class HomeCardSections extends StatelessWidget {
                     color: Colors.grey.shade800,
                   ),
                 ),
-                Container(
-                  child: Text(
-                    'View More',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      color: Colors.grey.shade700,
+                Material(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(5),
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(5),
+                    onTap: () {},
+                    child: Container(
+                      margin: EdgeInsets.all(5),
+                      child: Text(
+                        'View More',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Colors.grey.shade700,
+                        ),
+                      ),
                     ),
                   ),
                 ),

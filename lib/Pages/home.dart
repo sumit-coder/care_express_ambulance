@@ -18,13 +18,23 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Center(
-      //     child: Text(
-      //       'What You looking For',
-      //     ),
-      //   ),
-      // ),
+      drawer: Drawer(
+        child: Container(
+          child: Text('hi'),
+        ),
+      ),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.account_circle_outlined,
+              size: 25,
+            ),
+            onPressed: () {},
+          ),
+          SizedBox(width: 5)
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(

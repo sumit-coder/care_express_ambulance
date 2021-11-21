@@ -8,6 +8,7 @@ import 'package:device_preview/device_preview.dart';
 
 import 'Pages/logInPage.dart';
 import 'Pages/otpPage.dart';
+import 'Pages/pagesOfSections/homePrivateAmbu.dart';
 import 'Pages/pagesOfSections/otherEmergencyViewMorePage.dart';
 // import 'Pages/wecomePage.dart';
 
@@ -39,6 +40,8 @@ class MyApp extends StatelessWidget {
         '/otpPage': (context) => OtpPage(),
         '/homePage': (context) => HomePage(),
         '/otherEmergencyPage': (context) => OtherEmergencyViewMorePage(),
+        // Pages of Home Page
+        // '/bookPrivateAmbulance': (context) => PrivateAmbulanceBookPage(),
       },
       home: Scaffold(
         // appBar: AppBar(),
