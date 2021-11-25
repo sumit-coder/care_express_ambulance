@@ -98,14 +98,14 @@ class _HomePageState extends State<HomePage> {
       ),
       appBar: AppBar(
         actions: [
-          IconButton(
-            icon: Icon(
-              Icons.account_circle_outlined,
-              size: 25,
-            ),
-            onPressed: () {},
-          ),
-          SizedBox(width: 5)
+          // IconButton(
+          //   icon: Icon(
+          //     Icons.account_circle_outlined,
+          //     size: 25,
+          //   ),
+          //   onPressed: () {},
+          // ),
+          // SizedBox(width: 5)
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

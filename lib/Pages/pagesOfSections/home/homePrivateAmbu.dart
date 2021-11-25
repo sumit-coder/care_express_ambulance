@@ -125,7 +125,7 @@ class _LocationSelectCardState extends State<LocationSelectCard> {
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(5),
-                          child: Image.asset('assets/my.jpg'),
+                          child: Image.asset('assets/ambulance_4.jpg'),
                         ),
                         SizedBox(width: 10),
                         Container(
