@@ -60,31 +60,44 @@ class _AmbulanceSectionState extends State<AmbulanceSection> {
                               stateNmae: 'Uttar Pradesh',
                               callNumber: 108,
                             ),
+                            PhoneAmbulance(
+                              size: size,
+                              stateNmae: 'Maharashtra',
+                              callNumber: 108,
+                            ),
                           ],
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(top: 20),
-                        height: 50,
-                        width: size.width,
-                        color: Color(0xFFCECECE),
-                        alignment: Alignment.centerRight,
-                        padding: EdgeInsets.only(left: 20, right: 20),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            '/stateEmergencyPage',
+                          ); //For SENDING to stateEmergencyPage
+                        },
                         child: Container(
-                          width: 100,
-                          height: 35,
-                          padding: EdgeInsets.only(left: 5, right: 5),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.white,
-                          ),
-                          child: Center(
-                            child: Text(
-                              'VIEW MORE',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.grey.shade600,
+                          margin: EdgeInsets.only(top: 20),
+                          height: 50,
+                          width: size.width,
+                          color: Color(0xFFCECECE),
+                          alignment: Alignment.centerRight,
+                          padding: EdgeInsets.only(left: 20, right: 20),
+                          child: Container(
+                            width: 100,
+                            height: 35,
+                            padding: EdgeInsets.only(left: 5, right: 5),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.white,
+                            ),
+                            child: Center(
+                              child: Text(
+                                'VIEW MORE',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey.shade600,
+                                ),
                               ),
                             ),
                           ),

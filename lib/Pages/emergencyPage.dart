@@ -1,18 +1,30 @@
 import 'package:flutter/material.dart';
 
-class EmergencyPage extends StatefulWidget {
-  EmergencyPage({Key? key}) : super(key: key);
+import 'PageSections/ambulanceSection.dart';
+
+class UltraEmergencyPage extends StatefulWidget {
+  UltraEmergencyPage({Key? key}) : super(key: key);
 
   @override
-  _EmergencyPageState createState() => _EmergencyPageState();
+  _UltraEmergencyPageState createState() => _UltraEmergencyPageState();
 }
 
-class _EmergencyPageState extends State<EmergencyPage> {
+class _UltraEmergencyPageState extends State<UltraEmergencyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Center(child: Text('Emergency Page ')),
+      appBar: AppBar(
+        title: Text(
+          'Phone Number For Emergency',
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+      ),
+      body: SafeArea(
+        child: AmbulanceSection(),
       ),
     );
   }

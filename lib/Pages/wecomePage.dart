@@ -57,12 +57,13 @@ class WelcomePage extends StatelessWidget {
                   SizedBox(height: 10),
                   Container(
                     width: size.width * 0.7,
-                    height: 100,
+                    height: 150,
                     // decoration: BoxDecoration(color: Colors.grey),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    child: Column(
+                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         WelcomeBtn(
+                          title: 'Instant Free Ambulance',
                           size: size,
                           icon: Icons.west,
                           ontap: () {
@@ -71,6 +72,7 @@ class WelcomePage extends StatelessWidget {
                           },
                         ),
                         WelcomeBtn(
+                          title: 'Get Private Ambulance',
                           size: size,
                           icon: Icons.east,
                           ontap: () {
@@ -99,35 +101,60 @@ class WelcomeBtn extends StatelessWidget {
     required this.size,
     required this.icon,
     required this.ontap,
+    required this.title,
   }) : super(key: key);
 
   final Size size;
   final IconData icon;
   final Function ontap;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(size.width * 0.3 / 2),
-      onTap: () {
-        ontap();
-      },
-      child: Container(
-        height: size.height * 0.06,
-        width: size.width * 0.3,
-        padding: EdgeInsets.all(5),
-        decoration: BoxDecoration(
-          color: Colors.orange[100],
+    return Container(
+      margin: EdgeInsets.only(top: 10),
+      child: Material(
+        borderRadius: BorderRadius.circular(size.width * 0.3 / 2),
+        color: Colors.orange[100],
+        child: InkWell(
           borderRadius: BorderRadius.circular(size.width * 0.3 / 2),
-        ),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(size.width * 0.3 / 2),
-            color: Colors.orange[400],
-          ),
-          child: Icon(
-            icon,
-            color: Colors.white,
+          onTap: () {
+            ontap();
+          },
+          child: Container(
+            height: size.height * 0.07,
+            // width: size.width * 0.3,
+            padding: EdgeInsets.all(5),
+            decoration: BoxDecoration(
+              // color: Colors.orange[100],
+              borderRadius: BorderRadius.circular(size.width * 0.3 / 2),
+            ),
+            child: Container(
+              padding: EdgeInsets.only(left: 10, right: 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(size.width * 0.3 / 2),
+                color: Colors.orange[400],
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 16,
+                      // fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Icon(
+                    icon,
+                    color: Colors.white,
+                    size: 22,
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ),

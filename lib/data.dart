@@ -1,9 +1,83 @@
-List diseaseData = [
-  {'id ': 1, 'name': 'Disease 1', 'imageLink': 'assets/playstore.png.png'},
-  {'id ': 1, 'name': 'Disease 2', 'imageLink': 'assets/playstore.png.png'},
-  {'id ': 1, 'name': 'Disease 3', 'imageLink': 'assets/playstore.png.png'},
-  {'id ': 1, 'name': 'Disease 4', 'imageLink': 'assets/playstore.png.png'},
+List hospitalData = [
+  {
+    'id ': 1,
+    'name': 'Apollo',
+    'city': 'INDORE',
+    'imageLink': 'assets/apollo.jpg',
+    'address': 'New Indore city 153, INDORE, MADHYA PRADESH'
+  },
+  {
+    'id ': 2,
+    'name': 'Bombay',
+    'city': 'INDORE',
+    'imageLink': 'assets/bombay.jpg',
+    'address': 'Old Indore city 103, INDORE, MADHYA PRADESH'
+  },
+  {
+    'id ': 3,
+    'name': 'MY',
+    'city': 'INDORE',
+    'imageLink': 'assets/my.jpg',
+    'address': 'Section 97 Indore city, INDORE, MADHYA PRADESH'
+  },
 ];
+
+List diseaseData = [
+  {'id ': 1, 'name': 'Disease 1', 'imageLink': 'assets/playstore.png'},
+  {'id ': 1, 'name': 'Disease 2', 'imageLink': 'assets/playstore.png'},
+  {'id ': 1, 'name': 'Disease 3', 'imageLink': 'assets/playstore.png'},
+  {'id ': 1, 'name': 'Disease 4', 'imageLink': 'assets/playstore.png'},
+];
+
+List stateEmergencyData = [
+  {'id': 1, 'name': 'Andhra Pradesh', 'number': 112},
+  {'id': 2, 'name': 'Arunachal Pradesh', 'number': 112},
+  {'id': 3, 'name': 'Bihar', 'number': 112},
+  {'id': 4, 'name': 'Chhattisgarh', 'number': 112},
+  {'id': 5, 'name': 'Goa', 'number': 112},
+  {'id': 6, 'name': 'Gujarat', 'number': 112},
+  {'id': 7, 'name': 'Haryana', 'number': 112},
+  {'id': 8, 'name': 'Himachal Pradesh', 'number': 112},
+  {'id': 9, 'name': 'Jharkhand', 'number': 112},
+  {'id': 10, 'name': 'Karnataka', 'number': 112},
+  {'id': 11, 'name': 'Kerala', 'number': 112},
+  {'id': 12, 'name': 'Madhya Pradesh', 'number': 112},
+  {'id': 13, 'name': 'Maharashtra', 'number': 112},
+  {'id': 14, 'name': 'Mizoram', 'number': 112},
+  {'id': 15, 'name': 'Nagaland', 'number': 112},
+  {'id': 16, 'name': 'Odisha', 'number': 112},
+  {'id': 17, 'name': 'Punjab', 'number': 112},
+  {'id': 18, 'name': 'Rajasthan', 'number': 112},
+];
+
+// Andhra Pradesh
+// Arunachal Pradesh
+// Assam
+// Bihar
+// Chhattisgarh
+// Goa
+// Gujarat
+// Haryana
+// Himachal Pradesh
+// Jharkhand
+// Karnataka
+// Kerala
+// Madhya Pradesh
+// Maharashtra
+// Manipur
+// Meghalaya
+// Mizoram
+// Nagaland
+// Odisha
+// Punjab
+// Rajasthan ----
+// Sikkim
+// Tamil Nadu
+// Telangana
+// Tripura
+// Uttar Pradesh
+// Uttarakhand
+// West Bengal
 
 List otherEmergencyData = [
   {'id': 1, 'name': 'NATIONAL EMERGENCY NUMBER', 'number': 112},

@@ -1,9 +1,10 @@
-import 'package:care_express_ambulance/Pages/pagesOfSections/otherEmergencyViewMorePage.dart';
+import 'package:care_express_ambulance/Pages/pagesOfSections/emergency/otherEmergencyViewMorePage.dart';
 import 'package:flutter/material.dart';
 
 import 'PageSections/aboutSection.dart';
 import 'PageSections/ambulanceSection.dart';
 import 'PageSections/homeSection.dart';
+import 'pagesOfSections/home/homePrivateHospitalPage.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -17,10 +18,82 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
     return Scaffold(
       drawer: Drawer(
-        child: Container(
-          child: Text('hi'),
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Container(
+                height: 200,
+                width: double.maxFinite,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 60,
+                      width: 60,
+                      decoration: BoxDecoration(
+                        color: Colors.redAccent,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(30),
+                        child: Image.asset('assets/ambulance_4.jpg'),
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    Text(
+                      "joey tribbiani".toUpperCase(),
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.grey.shade800,
+                      ),
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      "+91 11223 34455".toUpperCase(),
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.grey.shade500,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Divider(
+              height: 1,
+              thickness: 1,
+            ),
+            ListTile(
+              leading: Icon(Icons.track_changes_outlined),
+              title: Text('Track Ambulance'),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.history),
+              title: Text('Booking History'),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.offline_pin),
+              title: Text('Saved Details'),
+              // selected: _selectedDestination == 0,
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Setting'),
+              onTap: () {},
+            ),
+          ],
         ),
       ),
       appBar: AppBar(
@@ -65,7 +138,9 @@ class _HomePageState extends State<HomePage> {
           : activeBottonIndex == 1
               ? AmbulanceSection()
               : AboutSection(),
-      // body: OtherEmergencyViewMorePage(),
+      // body: PrivateHospitalBookAmbu(
+      //   sendedHospitalData: 'apollo',
+      // ),
     );
   }
 }

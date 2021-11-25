@@ -1,4 +1,5 @@
-import 'package:care_express_ambulance/Pages/pagesOfSections/homePrivateAmbu.dart';
+import 'package:care_express_ambulance/Pages/pagesOfSections/home/homePrivateAmbu.dart';
+import 'package:care_express_ambulance/Pages/pagesOfSections/home/homePrivateHospitalPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -131,7 +132,7 @@ class _HomeSectionState extends State<HomeSection> {
                                 children: [
                                   ambulanceListViewItem(
                                     size,
-                                    '/ambulance_4.jpg',
+                                    'assets/ambulance_4.jpg',
                                     'Ambulance One',
                                     () {
                                       Navigator.push(
@@ -147,7 +148,7 @@ class _HomeSectionState extends State<HomeSection> {
                                   ),
                                   ambulanceListViewItem(
                                     size,
-                                    '/ambulance_6.jpg',
+                                    'assets/ambulance_6.jpg',
                                     'Ambulance Two',
                                     () {
                                       Navigator.push(
@@ -180,14 +181,14 @@ class _HomeSectionState extends State<HomeSection> {
                               size,
                               'Apollo Hospital',
                               'INDORE',
-                              '/apollo.jpg',
+                              'assets/apollo.jpg',
                               () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        PrivateAmbulanceBookPage(
-                                      ambulanceTypeData: 'Apoollo',
+                                        PrivateHospitalBookAmbu(
+                                      sendedHospitalData: 1,
                                     ),
                                   ),
                                 );
@@ -197,14 +198,14 @@ class _HomeSectionState extends State<HomeSection> {
                               size,
                               'Bombay Hospital',
                               'INDORE',
-                              '/bombay.jpg',
+                              'assets/bombay.jpg',
                               () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        PrivateAmbulanceBookPage(
-                                      ambulanceTypeData: 'Bombay',
+                                        PrivateHospitalBookAmbu(
+                                      sendedHospitalData: 2,
                                     ),
                                   ),
                                 );
@@ -214,14 +215,14 @@ class _HomeSectionState extends State<HomeSection> {
                               size,
                               'MY Hospital',
                               'INDORE',
-                              '/my.jpg',
+                              'assets/my.jpg',
                               () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        PrivateAmbulanceBookPage(
-                                      ambulanceTypeData: 'MY',
+                                        PrivateHospitalBookAmbu(
+                                      sendedHospitalData: 3,
                                     ),
                                   ),
                                 );
@@ -289,9 +290,12 @@ class _HomeSectionState extends State<HomeSection> {
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(5),
-                    child: Image.asset(
-                      imgLink,
-                      fit: BoxFit.cover,
+                    child: Hero(
+                      tag: hName,
+                      child: Image.asset(
+                        imgLink,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),

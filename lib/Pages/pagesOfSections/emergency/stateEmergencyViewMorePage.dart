@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'package:care_express_ambulance/data.dart';
 
-class OtherEmergencyViewMorePage extends StatelessWidget {
-  const OtherEmergencyViewMorePage({Key? key}) : super(key: key);
+class StateEmergencyViewMorePage extends StatelessWidget {
+  const StateEmergencyViewMorePage({Key? key}) : super(key: key);
 
   List<Widget> listNumberCards(Size size) {
     List<Widget> list = [];
 
-    for (var i = 0; i < otherEmergencyData.length; i++) {
+    for (var i = 0; i < stateEmergencyData.length; i++) {
       list.add(
         PhoneAmbulance(
           size: size,
-          stateNmae: otherEmergencyData[i]['name'],
-          callNumber: otherEmergencyData[i]['number'],
+          stateNmae: stateEmergencyData[i]['name'],
+          callNumber: stateEmergencyData[i]['number'],
         ),
       );
     }
@@ -25,10 +25,13 @@ class OtherEmergencyViewMorePage extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        title: Text('State Emergency Numbers'),
+      ),
       body: Container(
-        margin: EdgeInsets.only(
-          top: 20,
-        ),
+        // margin: EdgeInsets.only(
+        //   top: 20,
+        // ),
         width: size.width,
         color: Colors.blueGrey,
         height: size.height,

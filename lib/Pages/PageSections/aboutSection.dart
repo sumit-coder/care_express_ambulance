@@ -16,58 +16,60 @@ class _AboutSectionState extends State<AboutSection> {
     return Container(
       color: Color(0xFFDEDEDE),
       padding: EdgeInsets.only(left: 20, right: 20, top: 20),
-      child: Column(
-        children: [
-          Container(
-            margin: EdgeInsets.only(top: 20, bottom: 20),
-            height: 50,
-            padding: EdgeInsets.only(left: 20),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  // height: 40,
-                  width: size.width * 0.6,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Search for Disease',
-                      border: InputBorder.none,
-                      hintStyle: TextStyle(color: Colors.grey),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 20, bottom: 20),
+              height: 50,
+              padding: EdgeInsets.only(left: 20),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    // height: 40,
+                    width: size.width * 0.6,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Search for Disease',
+                        border: InputBorder.none,
+                        hintStyle: TextStyle(color: Colors.grey),
+                      ),
                     ),
                   ),
-                ),
-                Container(
-                  width: size.width * 0.15,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.orange,
-                  ),
-                  child: Center(
-                    child: Icon(
-                      Icons.search,
-                      color: Colors.white,
+                  Container(
+                    width: size.width * 0.15,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.orange,
                     ),
-                  ),
-                )
-              ],
+                    child: Center(
+                      child: Icon(
+                        Icons.search,
+                        color: Colors.white,
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
-          Container(
-            width: size.width,
-            child: Column(
-              children: [
-                gridListViewItemRow(size, '', ''),
-                gridListViewItemRow(size, '', ''),
-                gridListViewItemRow(size, '', ''),
-              ],
-            ),
-          )
-        ],
+            Container(
+              width: size.width,
+              child: Column(
+                children: [
+                  gridListViewItemRow(size, '', ''),
+                  gridListViewItemRow(size, '', ''),
+                  gridListViewItemRow(size, '', ''),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

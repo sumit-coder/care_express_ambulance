@@ -8,8 +8,12 @@ import 'package:device_preview/device_preview.dart';
 
 import 'Pages/logInPage.dart';
 import 'Pages/otpPage.dart';
-import 'Pages/pagesOfSections/homePrivateAmbu.dart';
-import 'Pages/pagesOfSections/otherEmergencyViewMorePage.dart';
+import 'Pages/pagesOfSections/emergency/stateEmergencyViewMorePage.dart';
+import 'Pages/pagesOfSections/home/homeAmbulanceViewmore.dart';
+import 'Pages/pagesOfSections/home/homePrivateAmbu.dart';
+import 'Pages/pagesOfSections/home/homePrivateHospitalPage.dart';
+import 'Pages/pagesOfSections/home/hospitalAmbulanceBookPage.dart';
+import 'Pages/pagesOfSections/emergency/otherEmergencyViewMorePage.dart';
 // import 'Pages/wecomePage.dart';
 
 // https://www.freepik.com/free-vector/medical-equipment-illustration_6822677.htm#page=1&query=ambulance&position=33&from_view=keyword
@@ -35,11 +39,12 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/welcomePage': (context) => WelcomePage(),
-        '/emergencyPage': (context) => EmergencyPage(),
+        '/emergencyPage': (context) => UltraEmergencyPage(),
         '/logInPage': (context) => LogInPage(),
         '/otpPage': (context) => OtpPage(),
         '/homePage': (context) => HomePage(),
         '/otherEmergencyPage': (context) => OtherEmergencyViewMorePage(),
+        '/stateEmergencyPage': (context) => StateEmergencyViewMorePage(),
         // Pages of Home Page
         // '/bookPrivateAmbulance': (context) => PrivateAmbulanceBookPage(),
       },
@@ -49,6 +54,14 @@ class MyApp extends StatelessWidget {
         body: SafeArea(
           child: Container(
             child: WelcomePage(),
+            // child: HomeAmbulanceViewmore(),
+            // child: PrivateHospitalBookAmbu(
+            //   sendedHospitalData: 3,
+            // ),
+            // child: HospitalAmbulanceBookPage(
+            //   ambulanceTypeData: 'one',
+            //   hospitalID: 1,
+            // ),
           ),
         ),
       ),
