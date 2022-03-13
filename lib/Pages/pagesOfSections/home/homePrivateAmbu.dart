@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class PrivateAmbulanceBookPage extends StatefulWidget {
   PrivateAmbulanceBookPage({Key? key, required this.ambulanceTypeData})
@@ -13,6 +14,31 @@ class PrivateAmbulanceBookPage extends StatefulWidget {
 
 class _PrivateAmbulanceBookPageState extends State<PrivateAmbulanceBookPage> {
   String activeCard = 'select'; // select and submit
+
+  late GoogleMapController _googleMapController;
+  Marker? _origin;
+  Marker? _destination;
+
+  static const CameraPosition _kGooglePlex = CameraPosition(
+    target: LatLng(37.42796133580664, -122.085749655962),
+    zoom: 14.4746,
+  );
+
+  static final CameraPosition _kLake = CameraPosition(
+    bearing: 192.8334901395799,
+    target: LatLng(37.43296265331129, -122.08832357078792),
+    tilt: 59.440717697143555,
+    zoom: 19.151926040649414,
+  );
+
+//----------------------------------------------------------------
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _googleMapController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,9 +64,19 @@ class _PrivateAmbulanceBookPageState extends State<PrivateAmbulanceBookPage> {
                 height: size.height,
                 width: size.width,
                 color: Colors.grey.shade300,
-                child: Image.asset(
-                  'assets/map_dark.png',
-                  fit: BoxFit.cover,
+                child: GoogleMap(
+                  myLocationButtonEnabled: false,
+                  zoomControlsEnabled: false,
+                  mapType: MapType.normal,
+                  initialCameraPosition: _kGooglePlex,
+                  onMapCreated: (controller) =>
+                      _googleMapController = controller,
+                  markers: {
+                    // _origin,
+                    if (_origin != null) _origin!,
+                    if (_destination != null) _destination!,
+                  },
+                  onLongPress: _addMarkers,
                 ),
               ),
               activeCard == 'select'
@@ -66,15 +102,54 @@ class _PrivateAmbulanceBookPageState extends State<PrivateAmbulanceBookPage> {
       ),
     );
   }
+
+  void _addMarkers(LatLng positionss) async {
+    // print(positionss);
+
+    if (_origin == null || (_origin != null && _destination != null)) {
+      setState(
+        () {
+          // set orign marker
+          _origin = Marker(
+            markerId: MarkerId('a'),
+            infoWindow: InfoWindow(title: 'Origin'),
+            icon:
+                BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+            position: positionss,
+          );
+
+          // set destiona to null
+          _destination = null;
+        },
+      );
+      // Startt = positionss;
+    } else {
+      setState(
+        () {
+          _destination = Marker(
+            markerId: MarkerId('b'),
+            infoWindow: InfoWindow(title: 'Destination'),
+            icon: BitmapDescriptor.defaultMarkerWithHue(
+                BitmapDescriptor.hueOrange),
+            position: positionss,
+          );
+        },
+      );
+      // await GetDirection().getDirectionsData(Startt, positionss);
+      // print(await getRoutData(Startt, positionss));
+
+    }
+  }
 }
 
 class LocationSelectCard extends StatefulWidget {
-  LocationSelectCard(
-      {Key? key,
-      required this.ambulanceTypeData,
-      required this.hospitalID,
-      required this.onSelectFun})
-      : super(key: key);
+  LocationSelectCard({
+    Key? key,
+    required this.ambulanceTypeData,
+    required this.hospitalID,
+    required this.onSelectFun,
+  }) : super(key: key);
+
   final String ambulanceTypeData;
   final int hospitalID;
   final VoidCallback onSelectFun;

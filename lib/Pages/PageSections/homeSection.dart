@@ -17,105 +17,105 @@ class _HomeSectionState extends State<HomeSection> {
     return Scaffold(
       body: Container(
         color: Color(0xFFE3E4EA),
-        padding: EdgeInsets.only(top: 30, left: 20, right: 20),
-        child: Column(
-          children: [
-            Text(
-              'Find Your Desired \Service',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 30,
-                color: Colors.grey.shade800,
+        padding: EdgeInsets.only(left: 20, right: 20),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 20),
+              Text(
+                'Find Your Desired \Service',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                  color: Colors.grey.shade800,
+                ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.only(
-                top: 20,
-              ),
-              height: 50,
-              padding: EdgeInsets.only(left: 10),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Icon(
-                          Icons.location_on_outlined,
-                          color: Colors.grey,
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 10),
-                          // height: 40,
-                          width: size.width * 0.6,
-                          child: Text(
-                            'Current Loaction',
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.grey,
-                            ),
-                          ),
-                        ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.expand_more,
+              Container(
+                margin: EdgeInsets.only(
+                  top: 20,
+                ),
+                height: 50,
+                padding: EdgeInsets.only(left: 10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(
+                            Icons.location_on_outlined,
                             color: Colors.grey,
                           ),
-                          onPressed: () {},
-                        )
-                      ],
-                    ),
-                  ), //
-                ],
+                          Container(
+                            margin: EdgeInsets.only(left: 10),
+                            // height: 40,
+                            width: size.width * 0.6,
+                            child: Text(
+                              'Current Loaction',
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              Icons.expand_more,
+                              color: Colors.grey,
+                            ),
+                            onPressed: () {},
+                          )
+                        ],
+                      ),
+                    ), //
+                  ],
+                ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 15, bottom: 20),
-              height: 50,
-              padding: EdgeInsets.only(left: 20),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    // height: 40,
-                    width: size.width * 0.6,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Search',
-                        border: InputBorder.none,
-                        hintStyle: TextStyle(color: Colors.grey),
+              Container(
+                margin: EdgeInsets.only(top: 15, bottom: 20),
+                height: 50,
+                padding: EdgeInsets.only(left: 20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      // height: 40,
+                      width: size.width * 0.6,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Search',
+                          border: InputBorder.none,
+                          hintStyle: TextStyle(color: Colors.grey),
+                        ),
                       ),
                     ),
-                  ),
-                  Container(
-                    width: size.width * 0.15,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.orange,
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.search,
-                        color: Colors.white,
+                    Container(
+                      width: size.width * 0.15,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.orange,
                       ),
-                    ),
-                  )
-                ],
+                      child: Center(
+                        child: Icon(
+                          Icons.search,
+                          color: Colors.white,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-            Expanded(
-              // height: 500,
-              child: SingleChildScrollView(
+              Container(
                 child: Column(
                   children: [
                     //  Ambulance Section -----------------------------------
@@ -249,8 +249,8 @@ class _HomeSectionState extends State<HomeSection> {
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
