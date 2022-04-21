@@ -140,12 +140,7 @@ class _PrivateHospitalBookAmbuState extends State<PrivateHospitalBookAmbu> {
                             MaterialPageRoute(
                               builder: (context) => HospitalAmbulanceBookPage(
                                 ambulanceTypeData: 'Ambulance ${index + 1}',
-                                hospitalID: widget.sendedHospitalData - 1,
-                                imageData: index == 0
-                                    ? 'assets/ambulance_4.jpg'
-                                    : index == 1
-                                        ? 'assets/ambulance_3.jpg'
-                                        : 'assets/ambulance_5.jpg',
+                                hospitalID: widget.sendedHospitalData,
                               ),
                             ),
                           );

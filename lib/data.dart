@@ -1,24 +1,32 @@
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 List hospitalData = [
   {
-    'id ': 1,
-    'name': 'Apollo',
+    'id': 1,
+    'name': 'Apollo Hospital',
     'city': 'INDORE',
+    'serviceType': 'Private',
     'imageLink': 'assets/apollo.jpg',
-    'address': 'New Indore city 153, INDORE, MADHYA PRADESH'
+    'address': 'New Indore city 153, INDORE, MADHYA PRADESH',
+    'location': LatLng(22.7570945, 75.8855084),
   },
   {
-    'id ': 2,
-    'name': 'Bombay',
+    'id': 2,
+    'name': 'Bombay Hospital',
     'city': 'INDORE',
+    'serviceType': 'Private',
     'imageLink': 'assets/bombay.jpg',
-    'address': 'Old Indore city 103, INDORE, MADHYA PRADESH'
+    'address': 'Old Indore city 103, INDORE, MADHYA PRADESH',
+    'location': LatLng(22.7545, 75.9035),
   },
   {
-    'id ': 3,
-    'name': 'MY',
+    'id': 3,
+    'name': 'MY Hospital',
     'city': 'INDORE',
+    'serviceType': 'Private',
     'imageLink': 'assets/my.jpg',
-    'address': 'Section 97 Indore city, INDORE, MADHYA PRADESH'
+    'address': 'Section 97 Indore city, INDORE, MADHYA PRADESH',
+    'location': LatLng(22.713500, 75.880400),
   },
 ];
 

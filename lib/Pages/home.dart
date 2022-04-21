@@ -1,10 +1,13 @@
 import 'package:care_express_ambulance/Pages/pagesOfSections/emergency/otherEmergencyViewMorePage.dart';
 import 'package:flutter/material.dart';
 
+import '../SideBarPages/AmbulanceHistory.dart';
+import '../SideBarPages/BookingHistory.dart';
 import 'PageSections/aboutSection.dart';
 import 'PageSections/ambulanceSection.dart';
 import 'PageSections/homeSection.dart';
 import 'pagesOfSections/home/homePrivateHospitalPage.dart';
+import 'package:care_express_ambulance/globalConfig.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -75,23 +78,52 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               leading: Icon(Icons.track_changes_outlined),
               title: Text('Track Ambulance'),
-              onTap: () {},
+              onTap: () async {
+                Map<dynamic, dynamic> trackDataFromSaved = await getSavedData();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AmbulanceHistoryPage(
+                      trackData: trackDataFromSaved,
+                    ),
+                  ),
+                );
+              },
             ),
             ListTile(
               leading: Icon(Icons.history),
               title: Text('Booking History'),
-              onTap: () {},
+              onTap: () async {
+                List trackDataFromSaved = await getSavedDataList();
+
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BookingHistory(
+                      bookingData: trackDataFromSaved,
+                    ),
+                  ),
+                );
+              },
             ),
             ListTile(
               leading: Icon(Icons.offline_pin),
               title: Text('Saved Details'),
               // selected: _selectedDestination == 0,
-              onTap: () {},
+              onTap: () async {
+                // saveData({'name': 'Sumit'});
+
+                // print(await getSavedData());
+                // clearSavedData();
+                print(await getSavedDataList());
+              },
             ),
             ListTile(
               leading: Icon(Icons.settings),
               title: Text('Setting'),
-              onTap: () {},
+              onTap: () async {
+                await clearSavedData();
+              },
             ),
           ],
         ),

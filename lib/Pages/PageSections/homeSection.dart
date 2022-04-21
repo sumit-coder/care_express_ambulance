@@ -3,6 +3,8 @@ import 'package:care_express_ambulance/Pages/pagesOfSections/home/homePrivateHos
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../globalConfig.dart';
+
 class HomeSection extends StatefulWidget {
   const HomeSection({Key? key}) : super(key: key);
 
@@ -11,6 +13,8 @@ class HomeSection extends StatefulWidget {
 }
 
 class _HomeSectionState extends State<HomeSection> {
+  dynamic userCurrentLocation = '';
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -30,50 +34,66 @@ class _HomeSectionState extends State<HomeSection> {
                   color: Colors.grey.shade800,
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(
-                  top: 20,
-                ),
-                height: 50,
-                padding: EdgeInsets.only(left: 10),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Icon(
-                            Icons.location_on_outlined,
-                            color: Colors.grey,
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(left: 10),
-                            // height: 40,
-                            width: size.width * 0.6,
-                            child: Text(
-                              'Current Loaction',
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.grey,
-                              ),
+              InkWell(
+                onTap: () async {
+                  if (userCurrentLocation == '') {
+                    var currentLocation = await getCurrentLocation();
+
+                    print(currentLocation);
+                    setState(() {
+                      userCurrentLocation = currentLocation;
+                    });
+                  }
+                },
+                child: Container(
+                  margin: EdgeInsets.only(
+                    top: 20,
+                  ),
+                  height: 50,
+                  padding: EdgeInsets.only(left: 10, right: 10),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        color: Colors.white,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.location_on_outlined,
+                                  color: Colors.grey,
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(left: 10),
+                                  // height: 40,
+                                  width: size.width * 0.6,
+                                  child: Text(
+                                    userCurrentLocation == ''
+                                        ? 'Current Loaction'
+                                        : '${userCurrentLocation.latitude} / ${userCurrentLocation.longitude}',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                          IconButton(
-                            icon: Icon(
-                              Icons.expand_more,
-                              color: Colors.grey,
-                            ),
-                            onPressed: () {},
-                          )
-                        ],
+                          ],
+                        ),
                       ),
-                    ), //
-                  ],
+                      Icon(
+                        Icons.expand_more,
+                        color: Colors.grey,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Container(

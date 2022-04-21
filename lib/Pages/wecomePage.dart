@@ -63,21 +63,21 @@ class WelcomePage extends StatelessWidget {
                       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         WelcomeBtn(
-                          title: 'Instant Free Ambulance',
-                          size: size,
-                          icon: Icons.west,
-                          ontap: () {
-                            Navigator.pushNamed(context,
-                                '/emergencyPage'); //For SENDING to EmergencyPage
-                          },
-                        ),
-                        WelcomeBtn(
                           title: 'Get Private Ambulance',
                           size: size,
                           icon: Icons.east,
                           ontap: () {
                             Navigator.pushNamed(context,
                                 '/logInPage'); //For SENDING to LogInPage
+                          },
+                        ),
+                        WelcomeBtn(
+                          title: 'Instant Free Ambulance',
+                          size: size,
+                          icon: Icons.west,
+                          ontap: () {
+                            Navigator.pushNamed(context,
+                                '/emergencyPage'); //For SENDING to EmergencyPage
                           },
                         ),
 

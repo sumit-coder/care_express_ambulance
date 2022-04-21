@@ -1,39 +1,34 @@
 import 'package:care_express_ambulance/Pages/emergencyPage.dart';
 import 'package:care_express_ambulance/Pages/home.dart';
 import 'package:care_express_ambulance/Pages/wecomePage.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
-import 'package:device_preview/device_preview.dart';
+import 'package:flutter/material.dart';
 
 import 'Pages/logInPage.dart';
 import 'Pages/otpPage.dart';
 import 'Pages/pagesOfSections/emergency/stateEmergencyViewMorePage.dart';
-import 'Pages/pagesOfSections/home/homeAmbulanceViewmore.dart';
-import 'Pages/pagesOfSections/home/homePrivateAmbu.dart';
-import 'Pages/pagesOfSections/home/homePrivateHospitalPage.dart';
-import 'Pages/pagesOfSections/home/hospitalAmbulanceBookPage.dart';
 import 'Pages/pagesOfSections/emergency/otherEmergencyViewMorePage.dart';
 // import 'Pages/wecomePage.dart';
 
 // https://www.freepik.com/free-vector/medical-equipment-illustration_6822677.htm#page=1&query=ambulance&position=33&from_view=keyword
 
 void main() {
-  // runApp(MyApp());
-  runApp(
-    DevicePreview(
-      enabled: true,
-      builder: (context) => MyApp(), // Wrap your app
-    ),
-  );
+  runApp(MyApp());
+
+  // runApp(
+  //   DevicePreview(
+  //     enabled: true,
+  //     builder: (context) => MyApp(), // Wrap your app
+  //   ),
+  // );
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: DevicePreview.locale(context), // Add the locale here
-      builder: DevicePreview.appBuilder,
+      // locale: DevicePreview.locale(context), // Add the locale here
+      // builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Barlow_Medium'),
       initialRoute: '/',
